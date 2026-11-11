@@ -312,7 +312,15 @@ export default function Home() {
             <span className="brand-mark">S<span>B</span></span>
             <span className="brand-name">SihleB<span>DIGITAL STUDIO</span></span>
           </a>
-          <p>Professional websites<br />for South African businesses.</p>
+          <p>
+            Professional websites<br />for South African businesses.
+            <br />
+            An exclusive festive website promotion by{" "}
+            <a href="https://sihleb.co.za/" target="_blank" rel="noreferrer">
+              SihleB Digital Studio
+            </a>
+            .
+          </p>
           <a className="footer-cta" href={whatsappHref} target="_blank" rel="noreferrer">
             <WhatsAppIcon /> Enquire about the offer <span aria-hidden="true">↗</span>
           </a>
