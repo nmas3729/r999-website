@@ -188,9 +188,12 @@ export default function Home() {
             <p className="eyebrow dark-eyebrow"><span /> Your business, with its own address <span /></p>
             <h2>YOUR BUSINESS DESERVES ITS OWN WEBSITE.</h2>
             <p className="section-intro">
-              A professional website complements social media. It gives
-              customers a dedicated place to discover your business, explore
-              your services and make contact.
+              The R999 Festive Website Special is a dedicated campaign run by
+              SihleB Digital Studio, the business behind this offer. It gives
+              South African small businesses an affordable website design
+              option: a professional 5-page business website for R999.99
+              once-off development. Hosting and domain registration are quoted
+              separately.
             </p>
           </div>
           <div className="benefit-grid reveal reveal-delay-1">
@@ -228,7 +231,7 @@ export default function Home() {
             </div>
             <a
               className="studio-site-link"
-              href="https://sihleb.co.za"
+              href="https://sihleb.co.za/"
               target="_blank"
               rel="noreferrer"
             >
