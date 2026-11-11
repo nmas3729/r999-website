@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SihleB Digital Studio — Festive Website Special
 
-## Getting Started
+Next.js App Router landing page for the R999.99 Festive Website Special.
 
-First, run the development server:
+## Local development
+
+Use the pinned pnpm version in `package.json`:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install --frozen-lockfile
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Offer terms
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The campaign promotes a professional 5-page website for **R999.99 once-off
+website development**. Hosting and domain registration are separate services;
+their costs must be quoted and explained before a customer accepts a quotation.
+The advertised offer ends **15 December 2026**.
 
-## Learn More
+Do not promise a free homepage preview or publish hosting/domain rates unless
+those details are confirmed in the current campaign terms. No such confirmation
+is present in this repository.
 
-To learn more about Next.js, take a look at the following resources:
+## WhatsApp configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Set `NEXT_PUBLIC_WHATSAPP_NUMBER` to the approved WhatsApp destination in
+international format using digits only, without a leading `+`. The current
+campaign destination is `27714664935`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This variable is public by design and Next.js embeds it in the generated site at
+build time. Set it in the deployment environment before building. Changing it
+requires a new build. The page fails its build if the destination is missing,
+so it cannot silently generate broken WhatsApp links.
 
-## Deploy on Vercel
+## Coolify deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create a **new, separate application** for this repository. Do not reuse or
+change the Coolify application serving `sihleb.co.za`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Use the repository root as the application root and a Node/Nixpacks buildpack.
+- Use Node.js **20.9 or newer**. The project pins pnpm through its
+  `packageManager` field.
+- Install command: `pnpm install --frozen-lockfile`
+- Build command: `pnpm build`
+- Start command: `pnpm start`
+- Expose application port `3000`.
+- Add `NEXT_PUBLIC_WHATSAPP_NUMBER` to the new application's build environment
+  before the first build. Use the approved campaign destination above.
+- Set the new application's domain to `r999.sihleb.co.za`.
+- At the DNS provider, point that hostname to the destination shown for this
+  Coolify application. Wait for DNS to resolve, then enable HTTPS/Let's Encrypt
+  in Coolify and verify the site at `https://r999.sihleb.co.za`.
+
+This repository contains no Dockerfile or Coolify-specific deployment
+configuration; the commands above use the existing Next.js production start
+script. Configure DNS and deployment only for the new application. No deployment
+or DNS changes are performed by this project.
