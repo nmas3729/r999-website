@@ -1,11 +1,10 @@
-const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(
-  /\D/g,
-  "",
-);
+const whatsappNumber =
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "") ?? "";
 
 export function whatsappLink(message: string) {
   if (!whatsappNumber) {
-    throw new Error("Set NEXT_PUBLIC_WHATSAPP_NUMBER before building the website.");
+    console.error("NEXT_PUBLIC_WHATSAPP_NUMBER is not configured.");
+    return "#";
   }
 
   const destination = `https://wa.me/${whatsappNumber}`;
